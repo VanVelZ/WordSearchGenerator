@@ -1,7 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="ZJV.WordSearch.Mobile.MainPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ZJV.WordSearch.Mobile.MainPage"
+             Padding="20, 50, 20, 20">
+        <ScrollView>
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Label x:Name="lblShowWordsearch" HorizontalOptions="Center" FontSize="Medium" FontFamily="Menlo"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+        
+        <Label Grid.Row="1" Grid.Column="1" Text="Height: " x:Name="lblShowHeight"/>
+        <Stepper Grid.Row="2" Grid.Column="1" x:Name="stpHeight" Value="15" Maximum="20" Minimum="2" Increment="1" ValueChanged="ChangeSize"/>
+
+        <Label Grid.Row="1" Grid.Column="4" Text="Width: " x:Name="lblShowWidth"/>
+        <Stepper Grid.Row="2" Grid.Column="4" x:Name="stpWidth" Value="15" Maximum="20" Minimum="2" Increment="1" ValueChanged="ChangeSize"/>
+        
+        <Label Grid.Row="3" Grid.Column="1" Text="Backwards"/>
+        <Switch Grid.Row="3" Grid.Column="2" x:Name="swtchAllowBackwards" IsToggled="False" Toggled="ToggleBackwards"/>
+        
+        <Label Grid.Row="3" Grid.Column="3" Text="Diagonals"/>
+        <Switch Grid.Row="3" Grid.Column="4" x:Name="swtchAllowDiagonal" IsToggled="False" Toggled="ToggleDiagonals"/>
+
+        <Label Grid.Row="4" Grid.Column="1" Text="Hide Noise"/>
+        <Switch Grid.Row="4" Grid.Column="2" x:Name="swtchHideNoise" IsToggled="False" Toggled="ToggleNoise"/>
+        
+        <Button Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4" Text="Save to PDF" x:Name="btnSave" BackgroundColor="AliceBlue" TextColor="Black" Clicked="btnSave_Clicked"/>
+            </Grid>
     </StackLayout>
+        </ScrollView>
 </ContentPage>

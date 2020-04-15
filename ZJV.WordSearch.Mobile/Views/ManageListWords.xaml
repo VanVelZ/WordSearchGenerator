@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ZJV.WordSearch.Mobile.Views.ManageListWords">
-    <ContentPage.Content>
-    </ContentPage.Content>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZJV.WordSearch.Mobile.Views.ManageListWords"
+             Padding="20,60,20,20">
+    <StackLayout>
+        <Entry x:Name="txtWord" Completed="Button_Clicked"/>
+        <Button Text="Add" Clicked="Button_Clicked"/>
+        <ScrollView>
+        <ListView x:Name="lstWords" ItemSelected="lstWords_ItemSelected">
+        </ListView>
+            </ScrollView>
+        <Button Text="Save to templates" x:Name="btnSave" BackgroundColor="AliceBlue" TextColor="Black" Clicked="btnSave_Clicked"/>
+    </StackLayout>
 </ContentPage>
