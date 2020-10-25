@@ -27,7 +27,7 @@ namespace ZJV.WordSearch.Mobile
             Title = "Wordsearch Generator";
 
             ToolbarItem tbi = new ToolbarItem();
-
+            
             tbi.Text = "Add Words";
             
 
@@ -36,7 +36,7 @@ namespace ZJV.WordSearch.Mobile
                 Navigation.PushAsync(new ManageListWords());
             };
             ToolbarItems.Add(tbi);
-
+            
             //Default Settings and list of words
             Settings.BoardX = 15;
             Settings.BoardY = 15;
@@ -53,6 +53,9 @@ namespace ZJV.WordSearch.Mobile
             lblShowWordsearch.Text = "";
             lblShowHeight.Text = "Height: " + Settings.BoardX;
             lblShowWidth.Text = "Width: " + Settings.BoardY;
+
+            stpHeight.Minimum = 10;
+            stpWidth.Minimum = 10;
 
             if (Settings.BoardY > 15) lblShowWordsearch.FontSize = 10;
             for (int i = 0; i < Settings.BoardX; i++)
@@ -160,6 +163,12 @@ namespace ZJV.WordSearch.Mobile
 
             //Save the stream as a file in the device and invoke it for viewing
             Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application / pdf", stream);
+        }
+
+        void btnRefresh_Clicked(Object sender, EventArgs e)
+        {
+            App.wordGrid = new WordGrid();
+            UpdateText();
         }
     }
 }

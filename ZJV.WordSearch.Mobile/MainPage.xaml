@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="ZJV.WordSearch.Mobile.MainPage"
-             Padding="20, 50, 20, 20">
+             Padding="20, 50, 20, 20"
+             >
         <ScrollView>
     <StackLayout>
         <Label x:Name="lblShowWordsearch" HorizontalOptions="Center" FontSize="Medium" FontFamily="Menlo"/>
@@ -23,13 +24,14 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
         
         <Label Grid.Row="1" Grid.Column="1" Text="Height: " x:Name="lblShowHeight"/>
-        <Stepper Grid.Row="2" Grid.Column="1" x:Name="stpHeight" Value="15" Maximum="20" Minimum="2" Increment="1" ValueChanged="ChangeSize"/>
+        <Stepper Grid.Row="2" Grid.Column="1" x:Name="stpHeight" Value="15" Maximum="20" Increment="1" ValueChanged="ChangeSize"/>
 
         <Label Grid.Row="1" Grid.Column="4" Text="Width: " x:Name="lblShowWidth"/>
-        <Stepper Grid.Row="2" Grid.Column="4" x:Name="stpWidth" Value="15" Maximum="20" Minimum="2" Increment="1" ValueChanged="ChangeSize"/>
+        <Stepper Grid.Row="2" Grid.Column="4" x:Name="stpWidth" Value="15" Maximum="20" Increment="1" ValueChanged="ChangeSize"/>
         
         <Label Grid.Row="3" Grid.Column="1" Text="Backwards"/>
         <Switch Grid.Row="3" Grid.Column="2" x:Name="swtchAllowBackwards" IsToggled="False" Toggled="ToggleBackwards"/>
@@ -39,8 +41,8 @@
 
         <Label Grid.Row="4" Grid.Column="1" Text="Hide Noise"/>
         <Switch Grid.Row="4" Grid.Column="2" x:Name="swtchHideNoise" IsToggled="False" Toggled="ToggleNoise"/>
-        
-        <Button Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4" Text="Save to PDF" x:Name="btnSave" BackgroundColor="AliceBlue" TextColor="Black" Clicked="btnSave_Clicked"/>
+        <Button Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4" Text="Refresh" x:Name="btnRefresh" BackgroundColor="AliceBlue" TextColor="Black" Clicked="btnRefresh_Clicked"/>
+        <Button Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="4" Text="Save to PDF" x:Name="btnSave" BackgroundColor="AliceBlue" TextColor="Black" Clicked="btnSave_Clicked"/>
             </Grid>
     </StackLayout>
         </ScrollView>

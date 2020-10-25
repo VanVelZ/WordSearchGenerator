@@ -23,12 +23,21 @@ namespace ZJV.WordSearch.BL
         public char[,] Board { get; set; }
         public WordGrid()
         {
+            WipeWordInfo();
             CreateBoard();
-            foreach(Word word in Settings.Words)
-            {
-                word.ResetWord();
-            }
         }
+        public WordGrid(int seed)
+        {
+            Settings.Seed = seed;
+            Settings.rand = new Random(Settings.Seed);
+            WipeWordInfo();
+            CreateBoard();
+        }
+        public WordGrid(List<string> words)
+        {
+            Settings.ConvertToWordObject(words);
+        }
+
         private void CreateBoard()
         {
 
@@ -48,6 +57,15 @@ namespace ZJV.WordSearch.BL
             }
             if(Settings.Words != null) foreach(Word word in Settings.Words) AddWordToBoard(word);
             
+        }
+        
+        public void WipeWordInfo() {
+
+            foreach (Word word in Settings.Words)
+            {
+                word.ResetWord();
+            }
+
         }
         private char GetLetter()
         {

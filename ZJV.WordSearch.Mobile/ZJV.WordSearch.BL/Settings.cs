@@ -14,11 +14,25 @@ namespace ZJV.WordSearch.BL
         public static bool HideNoise { get; set; } = false;
         public static int BoardX { get; set; }
         public static int BoardY { get; set; }
-        public static float MaxWords { get; set; } = BoardX * BoardY / 2;
+        public static float MaxWords { get; set; } = 15;
+        public static int Seed { get; set; }
 
         public static Random rand { get; set; } = new Random();
 
         
+        public static void ConvertToWordObject(List<string> words)
+        {
+            foreach(string word in words)
+            {
+                Settings.Words.Add(new Word(word));
+            }
+            
+        }
+        public static void ConvertToWordObject(string word)
+        {
+                Settings.Words.Add(new Word(word));
+            
+        }
     }
 
 }

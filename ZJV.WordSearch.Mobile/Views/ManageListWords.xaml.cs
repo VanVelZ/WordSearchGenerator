@@ -31,7 +31,11 @@ namespace ZJV.WordSearch.Mobile.Views
 
         void Button_Clicked(System.Object sender, System.EventArgs e)
         {
-            if (txtWord.Text != "" && txtWord.Text != null && !txtWord.Text.Contains(" ")) App.words.Add(txtWord.Text);
+            if (txtWord.Text != "" && txtWord.Text != null && !txtWord.Text.Contains(" "))
+            {
+                if (Settings.MaxWords > App.words.Count) App.words.Add(txtWord.Text);
+                else throw new Exception("That would be too many words for the grid.");
+            }
             txtWord.Text = string.Empty;
             txtWord.Focus();
             App.ResyncData();
@@ -42,7 +46,7 @@ namespace ZJV.WordSearch.Mobile.Views
         {
             ResyncData();
             lstWords.ItemsSource = null;
-            lstWords.ItemsSource = Settings.Words;
+            lstWords.ItemsSource = App.words;
 
         }
 
